@@ -16,22 +16,6 @@ const settings = {
             [
               "Home",
               "/"
-            ],
-            [
-              "Nature",
-              "/category/nature/"
-            ],
-            [
-              "Travel",
-              "/category/travel/"
-            ],
-            [
-              "Japan",
-              "/tag/japan/"
-            ],
-            [
-              "About Us",
-              "/about-us/"
             ]
           ],
           "featured": {
@@ -45,7 +29,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://test.frontity.io/wp-json"
+          "api": "https://public-api.wordpress.com/wp/v2/sites/juanmaguitarblog.wordpress.com"
         }
       }
     },

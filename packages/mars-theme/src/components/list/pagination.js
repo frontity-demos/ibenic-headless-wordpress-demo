@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Link from "../link";
+
 
 /**
  * Pagination Component
@@ -12,31 +13,27 @@ import Link from "../link";
  */
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { next, previous } = state.source.get(state.router.link);
+  const { page, totalPages } = state.source.get(state.router.link);
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
-  useEffect(() => {
-    if (next) actions.source.fetch(next);
-  }, []);
+  // useEffect(() => {
+  //   if (next) actions.source.fetch(next);
+  // }, []);
+
+  const pagesNumbers = Array(totalPages)
+    .fill(0)
+    .map((_, i) => i + 1);
+
+  const pagination = pagesNumbers.map((pageNumber, i) => (
+    <Link key={i} link={`/page/${pageNumber}`}>
+      <Text isCurrentPage={page === pageNumber}>{pageNumber}</Text>
+    </Link>
+  ));
 
   return (
-    <div>
-      {/* If there's a next page, render this link */}
-      {next && (
-        <Link link={next}>
-          <Text>← Older posts</Text>
-        </Link>
-      )}
-
-      {previous && next && " - "}
-
-      {/* If there's a previous page, render this link */}
-      {previous && (
-        <Link link={previous}>
-          <Text>Newer posts →</Text>
-        </Link>
-      )}
-    </div>
+    <PagesBlock>    
+      {pagination}
+    </PagesBlock>
   );
 };
 
@@ -46,7 +43,19 @@ const Pagination = ({ state, actions }) => {
  */
 export default connect(Pagination);
 
-const Text = styled.em`
+const Text = styled.span`
   display: inline-block;
   margin-top: 16px;
+  padding: 5px;
+  ${({isCurrentPage}) => isCurrentPage && css`
+    background: black;
+    color: white;
+  `
+  }
+`;
+
+const PagesBlock = styled.div`
+  a {
+    margin-right: 10px;
+  }
 `;
