@@ -8,6 +8,7 @@ import {
 
 import ListArticles from "components/ListArticles/";
 import SingleArticle from "components/SingleArticle/";
+import page404 from "components/page404/";
 
 import "./index.scss";
 
@@ -25,6 +26,7 @@ const App = props => {
               currentPage = page
               return <ListArticles page={+page} />
             }} />
+            <Route path="/404" component={page404} />
             <Route path="/:slug" render={routeProps => {
               const {slug} = routeProps.match.params
               return <SingleArticle currentPage={currentPage} slug={slug} />
