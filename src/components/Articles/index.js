@@ -10,9 +10,9 @@ const Articles = ({
 }) => {
  
   
-  const pages = Array(totalPages).fill(0).map((_, i) => i+1)
-  const pagination = pages.map((page, i) => (
-    <button className={currentPage === i+1 && 'currentPage'} key={i} onClick={ () => { setCurrentPage( page ) } }>{ page }</button>)
+  const pagesNumbers = Array(totalPages).fill(0).map((_, i) => i+1)
+  const pagination = pagesNumbers.map((pageNumber, i) => (
+    <button className={currentPage === i+1 && 'currentPage'} key={i} onClick={ () => { setCurrentPage( pageNumber ) } }>{ pageNumber }</button>)
     )
   
   const posts = postsFromProps.map( ( post, index ) => {

@@ -18,9 +18,6 @@ class PostsApiService {
   constructor(url) {
     this.urlBase = url
   }
-
-  page = 1
-  totalPages = 0
   
   getPosts({page} = {}) {
     this.page = page || this.page
