@@ -19,22 +19,23 @@ class PostsApiService {
     this.urlBase = url
   }
   
-  getPosts({page} = {}) {
-    this.page = page || this.page
-    const url = this.getUrlApiPosts({page: this.page})
-    console.log({page, url})
-    return api.get(url)
-      .then(response => {
-        this.totalPages = +response.headers['x-wp-totalpages']
-        return response
-      })
-      .then(({ data: posts }) => ({
-        totalPages: this.totalPages,
-        posts
-      }))
+  async getPostBySlug({slug = ''}) {
+    const url = this.getUrlApiPostBySlug({slug})
+    const response = await api.get(url)
+    const { data: results } = response
+    return results[0]
+  }
+
+  async getPosts({page = 1} = {}) {
+    const url = this.getUrlApiPosts({page})
+    const response = await api.get(url)
+    const totalPages = +response.headers['x-wp-totalpages']
+    const { data: posts } = response
+    return { totalPages, posts }
   }
 
   getUrlApiPosts({page}) { return `${this.urlBase}/posts?page=${page}` }
+  getUrlApiPostBySlug({slug}) { return `${this.urlBase}/posts?slug=${slug}` }
 
 }
 

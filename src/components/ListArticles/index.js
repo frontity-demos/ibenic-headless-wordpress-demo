@@ -13,14 +13,12 @@ const ListArticles = ({ page: currentPage }) => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-
       const [error, { posts, totalPages }] = await to(
         PostsApiService.getPosts({ page: currentPage })
       );
       if (error) console.error(error.message);
       setTotalPages(totalPages);
       setPosts(posts);
-
       setLoading(false);
     })();
   }, [currentPage]);
@@ -39,7 +37,9 @@ const ListArticles = ({ page: currentPage }) => {
   const postsList = posts.map((post, index) => {
     return (
       <article key={"article-" + index}>
-        <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h2>
+        <Link to={`/${post.slug}`}>
+          <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h2>
+        </Link>
         <div
           className="content"
           dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}

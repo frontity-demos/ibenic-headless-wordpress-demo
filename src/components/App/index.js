@@ -7,21 +7,28 @@ import {
 } from "react-router-dom";
 
 import ListArticles from "components/ListArticles/";
+import SingleArticle from "components/SingleArticle/";
 
 import "./index.scss";
 
 const App = props => {
   
+  let currentPage = 1
 
   return (
     <Router>
       <div className="App">
         <div className="container">
           <Switch>
-            <Route path="/page/:page" render={routeProps => (
-                <ListArticles page={+routeProps.match.params.page} />
-              )}>
-            </Route>
+            <Route path="/page/:page" render={routeProps => {
+              const {page} = routeProps.match.params
+              currentPage = page
+              return <ListArticles page={+page} />
+            }} />
+            <Route path="/:slug" render={routeProps => {
+              const {slug} = routeProps.match.params
+              return <SingleArticle currentPage={currentPage} slug={slug} />
+            }} />
             <Route path="/" >
               <Redirect to="/page/1" />
             </Route>
