@@ -1,68 +1,120 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Headless WordPress + React with Frontity
 
-## Available Scripts
+Proof of Concept of how Frontity can simplify the development of a project using Headless Wordpress + React
+The goal of this repo is to compare the code explained in this set of articles
 
-In the project directory, you can run:
+1. [Headless WordPress: Loading Posts & Pagination](https://www.ibenic.com/headless-wordpress-loading-posts-pagination/)
+2. [Headless WordPress: React Router Pagination](https://www.ibenic.com/headless-wordpress-react-router-pagination/)
+3. [Headless WordPress: Displaying a Single Article](https://www.ibenic.com/headless-wordpress-displaying-articles/)
 
-### `yarn start`
+with the code needed for the same type of project with Frontity
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## The project
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+After, the three articles the final project should have the following features
 
-### `yarn test`
+- use a Headless WP as the source od data (backend)
+- display the list of posts (per pages)
+  - cache results
+  - display number of pages
+  - go to specific page through proper route
+- display a single post from a Headless WP (referencing it from its slug)
+  - handle error when page is not found
+  
+## The `ibenic.com` implementation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the [blog](www.ibenic.com), we can find a set of articles that explains how to achieve this project through the following articles
 
-### `yarn build`
+1. [Headless WordPress: Loading Posts & Pagination](https://www.ibenic.com/headless-wordpress-loading-posts-pagination/)
+2. [Headless WordPress: React Router Pagination](https://www.ibenic.com/headless-wordpress-react-router-pagination/)
+3. [Headless WordPress: Displaying a Single Article](https://www.ibenic.com/headless-wordpress-displaying-articles/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As I don't have access to the original code I have created an alternative version of the explanations given in each article
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This implementation uses [`create-react-app`](https://create-react-app.dev/) to create the boilerplate needed to start coding w/ React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### 1. Headless WordPress: Loading Posts & Pagination
 
-### `yarn eject`
+- 📄 Original Article → https://www.ibenic.com/headless-wordpress-loading-posts-pagination/
+- 💻 Code → https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-Loading-Posts-Pagination
+- 🌎 Online → https://ibenic-headless-wordpress-demo-1.now.sh/
+- 🎁 CodeSandbox → https://codesandbox.io/s/github/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-Loading-Posts-Pagination
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### 2. Headless WordPress: React Router Pagination
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 📄 Original Article → https://www.ibenic.com/headless-wordpress-react-router-pagination/
+- 💻 Code → https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-React-Router-Pagination
+- 🌎 Online → https://ibenic-headless-wordpress-demo-2.now.sh/
+- 🎁 CodeSandbox → https://codesandbox.io/s/github/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-React-Router-Pagination
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### 3. Headless WordPress: Displaying a Single Article
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 📄 Original Article → https://www.ibenic.com/headless-wordpress-displaying-articles/
+- 💻 Code → https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-Displaying-Single-Article
+- 🌎 Online → https://ibenic-headless-wordpress-demo-3.juanmaguitar.now.sh
+- 🎁 CodeSandbox → https://codesandbox.io/s/github/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-Displaying-Single-Article
 
-## Learn More
+This last one (Headless WordPress: Displaying a Single Article) is the final the version of the project, so we're going to compare this [final version](https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/Headless-WordPress-Displaying-Single-Article) w/ the [frontity version](https://codesandbox.io/s/github/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/frontity-codesandbox)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## The `frontity` implementation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 💻 Code → https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/frontity-codesandbox
+- 🎁 CodeSandbox → https://codesandbox.io/s/github/frontity-juanmaguitar/ibenic-headless-wordpress-demo/tree/frontity-codesandbox
 
-### Code Splitting
+To create the frontity version we've done...
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### 1. Create the boilerplate
 
-### Analyzing the Bundle Size
+Create the boilerplate w/ the command `npx frontity create frontity-implementation`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### 2. Do a few changes in the code 
 
-### Making a Progressive Web App
+As the boilerplate install a default theme we can just adapt it to get the final behaviour we want
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+1. We've edited `frontity.settings.js` to add a new source of data and to remove elements of the menu
 
-### Advanced Configuration
+2. We've edited `packages/mars-theme/src/components/list/pagination.js` to add buttons per pages so we can go directly to a specific page (and add some styles)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+And that's all! 🎉 These are all the changes we've done from the boilerplate to get the desired behaviour → https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/commit/9aefef69c40cbbadf617d53c16fe4b55080ff91d
 
-### Deployment
+## The comparison
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Taking into account that frontity is a framework completely focused on the creation of apps using React + Headless WP, we've been able to get the behaviour we want with just [a few modifications](https://github.com/frontity-juanmaguitar/ibenic-headless-wordpress-demo/commit/9aefef69c40cbbadf617d53c16fe4b55080ff91d) from the boilerplate 
 
-### `yarn build` fails to minify
+Plus, with Frontity our app/site gets [more features by default](https://docs.frontity.org/frontity-features)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+|                                  | ibenic implementation w/ `create-react-app` | frontity implementation |
+|----------------------------------|-----------------------|-------------------------|
+| connect react app to Headless WP | ✅                     | ✅                       |
+| pagination                       | ✅                     | ✅                       |
+| access post by slug              | ✅                     | ✅                       |
+| routes                           | ✅                     | ✅                       |
+| cache requests                   | ✅ but limited         | ✅ optimized!            |
+| SSR                              | ❌                     | ✅                       |
+| Best Lighthouse score            | ❌                     | ✅                       |
+
+
+
+
+----
+
+Oks, you've catched my attention 🧐
+I'll give it a try to Frontity!! 🤠
+
+But... **How do I know what changes I have to do in Frontity to get the behaviour I want?**
+
+Well, The great thing about Frontity is that is completely focused in connecting React apps w/ Headless Wordpress so by default you get a starting point boilerplate w/ the typical behaviours you'll want in a React + Headless WP app (get info from WP API, pagination, access to a post by its slug, and more...)
+
+From there you can start customizing the code to add more behaviours and create amazing sites and apps using the stack React + Headless WP
+
+To know more about Frontity you can have a look at:
+
+<ul>
+  <li>📖 <strong>Docs</strong>: this is the place to learn how to build amazing sites with Frontity. <a href="https://docs.frontity.org/getting-started">Get started!</a></li>
+  <li>👨‍👩‍👧‍👦 <strong>Community</strong>: use our forum to share any doubts, feedback and meet great people. This is your place too to share <a href="https://community.frontity.org/c/dev-talk-questions">how are you planning to use Frontity!</a></li>
+  
+</ul>
+
+Or directly send me mail to [juanma@frontity.dev](mailto:juanma@frontity.dev). I'm the Lead Developers Relations of Frontity and I'll be glad the to help you succeed w/ Frontity 💪
+
+
