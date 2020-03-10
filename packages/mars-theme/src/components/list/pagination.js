@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Link from "../link";
+
 
 /**
  * Pagination Component
@@ -10,54 +11,29 @@ import Link from "../link";
  * The `state`, `actions`, `libraries` props are provided by the global context,
  * when we wrap this component in `connect(...)`
  */
-const Pagination = ({ state, actions, libraries }) => {
+const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { totalPages } = state.source.get(state.router.link);
-  const { path, page, query } = libraries.source.parse(state.router.link);
-
-  // Check if we can go to next page within the pagination
-  const isThereNextPage = page < totalPages;
-
-  // Check if we can go to previous page within the pagination
-  const isTherePreviousPage = page > 1;
-
-  // Get the link for the next page
-  const nextPageLink = libraries.source.stringify({
-    path,
-    page: page + 1,
-    query
-  });
-
-  // Get the link for the previous page
-  const prevPageLink = libraries.source.stringify({
-    path,
-    page: page - 1,
-    query
-  });
+  const { page, totalPages } = state.source.get(state.router.link);
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
-  useEffect(() => {
-    if (isThereNextPage) actions.source.fetch(nextPageLink);
-  }, []);
+  // useEffect(() => {
+  //   if (next) actions.source.fetch(next);
+  // }, []);
+
+  const pagesNumbers = Array(totalPages)
+    .fill(0)
+    .map((_, i) => i + 1);
+
+  const pagination = pagesNumbers.map((pageNumber, i) => (
+    <Link key={i} link={`/page/${pageNumber}`}>
+      <Text isCurrentPage={page === pageNumber}>{pageNumber}</Text>
+    </Link>
+  ));
 
   return (
-    <div>
-      {/* If there's a next page, render this link */}
-      {isThereNextPage && (
-        <Link link={nextPageLink}>
-          <Text>← Older posts</Text>
-        </Link>
-      )}
-
-      {isTherePreviousPage && isThereNextPage && " - "}
-
-      {/* If there's a previous page, render this link */}
-      {isTherePreviousPage && (
-        <Link link={prevPageLink}>
-          <Text>Newer posts →</Text>
-        </Link>
-      )}
-    </div>
+    <PagesBlock>    
+      {pagination}
+    </PagesBlock>
   );
 };
 
@@ -67,7 +43,19 @@ const Pagination = ({ state, actions, libraries }) => {
  */
 export default connect(Pagination);
 
-const Text = styled.em`
+const Text = styled.span`
   display: inline-block;
   margin-top: 16px;
+  padding: 5px;
+  ${({isCurrentPage}) => isCurrentPage && css`
+    background: black;
+    color: white;
+  `
+  }
+`;
+
+const PagesBlock = styled.div`
+  a {
+    margin-right: 10px;
+  }
 `;
