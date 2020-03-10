@@ -1,34 +1,25 @@
 {
-  "name": "ibenic-headless-wordpress-demo",
-  "version": "0.1.0",
+  "name": "codesandbox-frontity",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
-  },
+  "description": "Frontity project",
+  "keywords": [
+    "frontity"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "frontity dev",
+    "postinstall": "symlink-dir ./packages/mars-theme ./node_modules/@frontity/mars-theme"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "prettier": {},
+  "dependencies": {
+    "@frontity/core": "^1.4.1",
+    "@frontity/html2react": "^1.1.15",
+    "@frontity/mars-theme": "file:./packages/mars-theme",
+    "@frontity/tiny-router": "^1.0.18",
+    "@frontity/wp-source": "^1.4.3",
+    "frontity": "^1.4.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "symlink-dir": "^3.1.1"
   }
 }
