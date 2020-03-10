@@ -1,7 +1,7 @@
 # Headless WordPress + React with Frontity
 
 Proof of Concept of how Frontity can simplify the development of a project using Headless Wordpress + React
-The goal of this repo is to compare the code explained in this set of articles
+The goal of this repo is to compare the project explained in this set of articles
 
 1. [Headless WordPress: Loading Posts & Pagination](https://www.ibenic.com/headless-wordpress-loading-posts-pagination/)
 2. [Headless WordPress: React Router Pagination](https://www.ibenic.com/headless-wordpress-react-router-pagination/)
@@ -13,7 +13,7 @@ with the code needed for the same type of project with Frontity
 
 After, the three articles the final project should have the following features
 
-- use a Headless WP as the source od data (backend)
+- use a Headless WP as the source of data (backend)
 - display the list of posts (per pages)
   - cache results
   - display number of pages
@@ -21,9 +21,9 @@ After, the three articles the final project should have the following features
 - display a single post from a Headless WP (referencing it from its slug)
   - handle error when page is not found
   
-## The `ibenic.com` implementation
+## The `create-react-app` implementation
 
-In the [blog](www.ibenic.com), we can find a set of articles that explains how to achieve this project through the following articles
+At ibenic.com, we can find a set of articles that explains how to achieve this project through the following articles
 
 1. [Headless WordPress: Loading Posts & Pagination](https://www.ibenic.com/headless-wordpress-loading-posts-pagination/)
 2. [Headless WordPress: React Router Pagination](https://www.ibenic.com/headless-wordpress-react-router-pagination/)
@@ -83,17 +83,17 @@ Taking into account that frontity is a framework completely focused on the creat
 
 Plus, with Frontity our app/site gets [more features by default](https://docs.frontity.org/frontity-features)
 
-|                                  | ibenic implementation w/ `create-react-app` | frontity implementation |
-|----------------------------------|-----------------------|-------------------------|
-| connect react app to Headless WP | ✅                     | ✅                       |
-| pagination                       | ✅                     | ✅                       |
-| access post by slug              | ✅                     | ✅                       |
-| routes                           | ✅                     | ✅                       |
-| cache requests                   | ✅ but limited         | ✅ optimized!            |
-| SSR                              | ❌                     | ✅                       |
-| Best Lighthouse score            | ❌                     | ✅                       |
-
-
+|                                    | create-react-app implementation | frontity implementation |
+|------------------------------------|---------------------------------|-------------------------|
+| connect react app to Headless WP   | ✅                               | ✅                       |
+| pagination                         | ✅                               | ✅                       |
+| access post by slug                | ✅                               | ✅                       |
+| routes                             | ✅                               | ✅                       |
+| cache requests                     | ✅                               | ✅ optimized!            |
+| 404 not found                      | ✅                               | ✅                       |
+| boilerplate focused on Headless WP | ❌                               | ✅                       |
+| SSR                                | ❌                               | ✅                       |
+| Best Lighthouse score              | ❌                               | ✅                       |
 
 
 ----
@@ -115,6 +115,6 @@ To know more about Frontity you can have a look at:
   
 </ul>
 
-Or directly send me mail to [juanma@frontity.dev](mailto:juanma@frontity.dev). I'm the Lead Developers Relations of Frontity and I'll be glad the to help you succeed w/ Frontity 💪
+Or directly send me mail to [juanma@frontity.dev](mailto:juanma@frontity.dev). I'm the Lead Developers Relations at Frontity and I'll be glad the to help you succeed w/ Frontity 💪
 
 
