@@ -94,6 +94,7 @@ Plus, with Frontity our app/site gets [more features by default](https://docs.fr
 | boilerplate focused on Headless WP | ❌                               | ✅                       |
 | SSR                                | ❌                               | ✅                       |
 | Best Lighthouse score              | ❌                               | ✅                       |
+| SEO Head Tags              | ❌                               | ✅                       |
 
 
 ----
@@ -114,7 +115,4 @@ To know more about Frontity you can have a look at:
   <li>👨‍👩‍👧‍👦 <strong>Community</strong>: use our forum to share any doubts, feedback and meet great people. This is your place too to share <a href="https://community.frontity.org/c/dev-talk-questions">how are you planning to use Frontity!</a></li>
   
 </ul>
-
-Or directly send me mail to [juanma@frontity.dev](mailto:juanma@frontity.dev). I'm the Lead Developers Relations at Frontity and I'll be glad the to help you succeed w/ Frontity 💪
-
 
