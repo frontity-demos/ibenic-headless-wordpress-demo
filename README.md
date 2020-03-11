@@ -116,7 +116,7 @@ To know more about Frontity you can have a look at:
   
 </ul>
 
-If you'd like to share your feedback or have any questions, feel free to reach out to us on our community forum - there you can directly mention my user [@juanma](https://community.frontity.org/u/juanma) so I get a notification right away 
+If you'd like to share your feedback or have any questions, feel free to reach out to us on our [community forum](https://community.frontity.org/) - there you can directly mention my user [@juanma](https://community.frontity.org/u/juanma) so I get a notification right away 
 
 You can also find me in:
 
