@@ -116,3 +116,6 @@ To know more about Frontity you can have a look at:
   
 </ul>
 
+If you'd like to share your feedback or have any questions, feel free to reach out to us on our community forum - you can directly mention my forum user @juanma so I get a notification right away 
+
+You can also find me in twitter ![https://twitter.com/juanmaguitar](https://img.shields.io/twitter/follow/juanmaguitar?label=@juanmaguitar)
